@@ -21,7 +21,7 @@ const CoinOverview = async () => {
   return (
     <div id="coin-overview">
       <div className="header pt-2">
-        <Image src={coin.image?.large ?? ''} alt={coin.name ?? 'Coin'} width={56} height={56} />
+        <Image src={coin.image?.large ?? '/assets/icon.png'} alt={coin.name ?? 'Coin'} width={56} height={56} />
         
         <div className="info">
           <p>{coin.name} | {coin.symbol?.toUpperCase() ?? ''}</p>
