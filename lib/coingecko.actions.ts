@@ -23,7 +23,7 @@ export async function fetchFromCoinGecko<T>(
       "x-cg-demo-api-key": API_KEY,
       "Content-Type": "application/json",
     } as Record<string, string>,
-    next: { revalidate},
+    next: { revalidate },
   });
 
   if(!response.ok) {
