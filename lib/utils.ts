@@ -13,7 +13,7 @@ export function formatCurrency(
   locale: string = 'en-US',
 ) {
   if (value === null || value === undefined || isNaN(value)) {
-    return showSymbol !== false ? '$0.00' : '0.00';
+    return formatCurrency(0, digits, currency, showSymbol, locale);
   }
 
   if (showSymbol === undefined || showSymbol === true) {
@@ -35,5 +35,6 @@ export function formatPercentage(change: number | null | undefined): string {
     return '0.0%';
   }
   const formattedChange = change.toFixed(1);
-  return `${formattedChange}%`;
+  const prefix = change > 0 ? '+' : '';
+  return `${prefix}${formattedChange}%`;
 }
