@@ -7,7 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 const TrendingCoins = async () => {
-  let trendingCoins;
+  let trendingCoins: { coins: TrendingCoin[] };
 
   try {
     trendingCoins = await fetchFromCoinGecko<{ coins: TrendingCoin[] }>("/search/trending",
@@ -15,7 +15,10 @@ const TrendingCoins = async () => {
       300
     );
   } catch (error) {
-    console.error("Error fetching trending coins:", error);
+    if(process.env.NODE_ENV === "development") {
+      console.error("Error fetching trending coins:", error);
+    }
+
     return <TrendingCoinsFallback />;
   }
 
@@ -39,20 +42,19 @@ const TrendingCoins = async () => {
       cellClassName: "name-cell",
       cell: (coin) => {
         const item = coin.item;
-        const change24h = item.data.price_change_percentage_24h.usd;
+        const change24h = item.data?.price_change_percentage_24h?.usd ?? 0;
         const isTrendingUp = change24h > 0;
         const percentageFormated = formatPercentage(change24h);
 
         return (
-          <div className={cn("price-change", isTrendingUp ? "text-green-500" : "text-red-500")}>
-            <p className="flex items-center">
+          <div className={cn("price-change flex items-center gap-2", isTrendingUp ? "text-green-500" : "text-red-500")}>
+            <div className="flex items-center">
               {isTrendingUp ?
                 <TrendingUp width={16} height={16} />
               :
                 <TrendingDown width={16} height={16} />
               }
-            </p>
-            <br />
+            </div>
             <p>{percentageFormated}</p>
           </div>
         )
@@ -61,7 +63,7 @@ const TrendingCoins = async () => {
     {
       header: "Price",
       cellClassName: "price-cell",
-      cell: (coin) => formatCurrency(coin.item.data.price),
+      cell: (coin) => formatCurrency(coin.item.data?.price),
     },
   ];
 

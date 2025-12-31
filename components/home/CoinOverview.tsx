@@ -4,14 +4,17 @@ import { formatCurrency } from "@/lib/utils"
 import Image from "next/image"
 
 const CoinOverview = async () => {
-  let coin;
+  let coin: CoinDetailsData;
 
   try {
     coin = await fetchFromCoinGecko<CoinDetailsData>("/coins/bitcoin", {
         dex_pair_format: "symbol",
       });
   } catch (error) {
-    console.error("Error fetching coin details:", error);
+    if(process.env.NODE_ENV === "development") {
+      console.error("Error fetching coin details:", error);
+    }
+
     return <CoinOverviewFallback />;
   }
 
