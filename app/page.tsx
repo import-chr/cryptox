@@ -16,6 +16,7 @@ const Home = async () => {
         </Suspense>
       </section>
 
+      {/* TODO: Add categories section */}
       <section className="w-full mt-7 space-y-4">
         <p>Categories</p>
       </section>
