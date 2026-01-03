@@ -24,13 +24,13 @@ const Categories = async () => {
       cellClassName: "change-header-cell",
       cell: (category) => {
         const change24h = category.market_cap_change_24h;
-        const hasChange = change24h > 0;
+        const isPositive = change24h > 0;
         const percentageFormated = formatPercentage(change24h);
 
         return (
-          <div className={cn("price-change flex items-center gap-2", hasChange ? "text-green-500" : "text-red-500")}>
+          <div className={cn("price-change flex items-center gap-2", isPositive ? "text-green-500" : "text-red-500")}>
             <div className="flex items-center">
-              {hasChange ?
+              {isPositive ?
                 <TrendingUp width={16} height={16} />
               :
                 <TrendingDown width={16} height={16} />
