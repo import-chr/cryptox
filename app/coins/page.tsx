@@ -54,7 +54,7 @@ const Coins = async ({ searchParams }: NextPageProps) => {
 
         return (
           <div className={cn("price-change flex items-center gap-2", isPositive ? "text-green-500" : "text-red-500")}>
-            <div className="felx items-center">
+            <div className="flex items-center">
               {isPositive ?
                 <TrendingUp width={16} height={16} />
               :
