@@ -7,14 +7,10 @@ interface NextPageProps {
 
 interface CandlestickChartProps {
   data?: OHLCData[];
-  liveOhlcv?: OHLCData | null;
   coinId: string;
   height?: number;
   children?: React.ReactNode;
-  mode?: 'historical' | 'live';
   initialPeriod?: Period;
-  liveInterval: '1s' | '1m';
-  setLiveInterval: (interval: '1s' | '1m') => void;
 }
 
 interface ConverterProps {
@@ -36,7 +32,7 @@ interface Ticker {
   trade_url: string;
 }
 
-type Period = 'daily' | 'weekly' | 'monthly' | '3months' | '6months' | 'yearly' | 'max';
+type Period = 'daily' | 'weekly' | 'monthly' | '3months' | '6months' | 'yearly';
 
 interface CoinMarketData {
   id: string;
@@ -110,36 +106,8 @@ interface ChartSectionProps {
   coinId: string;
 }
 
-interface TopGainersLosers {
-  id: string;
-  name: string;
-  symbol: string;
-  image: string;
-  price: number;
-  priceChangePercentage24h: number;
-}
-
-interface TopGainersLosersResponse {
-  id: string;
-  name: string;
-  symbol: string;
-  image: string;
-  usd: number;
-  usd_24h_change: number;
-  usd_24h_vol: number;
-  market_cap_rank: number;
-}
-
 interface PriceData {
   usd: number;
-}
-
-interface Trade {
-  price?: number;
-  timestamp?: number;
-  type?: string;
-  amount?: number;
-  value?: number;
 }
 
 interface ExtendedPriceData {
@@ -150,27 +118,6 @@ interface ExtendedPriceData {
   marketCap?: number;
   volume24h?: number;
   timestamp?: number;
-}
-
-interface WebSocketMessage {
-  type?: string;
-  c?: string;
-  ch?: string;
-  i?: string;
-  p?: number;
-  pp?: number;
-  pu?: number;
-  m?: number;
-  v?: number;
-  vo?: number;
-  o?: number;
-  h?: number;
-  l?: number;
-  t?: number;
-  to?: number;
-  ty?: string;
-  channel?: string;
-  identifier?: string;
 }
 
 interface CoinDetailsData {
@@ -224,7 +171,6 @@ interface CoinDetailsData {
 
 interface LiveDataProps {
   coinId: string;
-  poolId: string;
   coin: CoinDetailsData;
   coinOHLCData?: OHLCData[];
   children?: React.ReactNode;
@@ -233,8 +179,8 @@ interface LiveDataProps {
 interface LiveCoinHeaderProps {
   name: string;
   image: string;
-  livePrice?: number;
-  livePriceChangePercentage24h: number;
+  price?: number;
+  priceChangePercentage24h: number;
   priceChangePercentage30d: number;
   priceChange24h: number;
 }
@@ -245,19 +191,6 @@ interface Category {
   market_cap_change_24h: number;
   market_cap: number;
   volume_24h: number;
-}
-
-interface UseCoinGeckoWebSocketProps {
-  coinId: string;
-  poolId: string;
-  liveInterval?: '1s' | '1m';
-}
-
-interface UseCoinGeckoWebSocketReturn {
-  price: ExtendedPriceData | null;
-  trades: Trade[];
-  ohlcv: OHLCData | null;
-  isConnected: boolean;
 }
 
 interface DataTableColumn<T> {
