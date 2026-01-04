@@ -251,3 +251,8 @@ interface PoolData {
   name: string;
   network: string;
 }
+
+type PoweredByCGAPIProps = {
+  svgClassName?: string;
+  size?: "sm" | "md" | "lg" | "xl" | "xxl";
+}
