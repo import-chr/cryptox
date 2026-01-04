@@ -1,5 +1,6 @@
 import CoinsPagination from "@/components/CoinsPagination"
 import DataTable from "@/components/DataTable"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 import { fetchFromCoinGecko } from "@/lib/coingecko.actions"
 import { cn, formatCurrency, formatPercentage } from "@/lib/utils"
 import { TrendingDown, TrendingUp } from "lucide-react"
@@ -78,10 +79,13 @@ const Coins = async ({ searchParams }: NextPageProps) => {
     Math.ceil(currentPage / 100) * 100 + 100 : 100;
 
   return (
-    <main id="coins-page">
+    <main id="coins-page" className="mt-[48]">
       <div className="content">
-        <h4>All Tokens</h4>
+        <div className="flex items-start justify-between">
+          <h4>All Tokens</h4>
 
+          <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="lg" />
+        </div>
         <DataTable
           columns={columns}
           data={allCoinsData}

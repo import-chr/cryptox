@@ -11,6 +11,7 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 
 const Converter = ({
   symbol,
@@ -23,7 +24,11 @@ const Converter = ({
 
   return (
     <div id="converter">
-      <h4>{symbol.toLocaleUpperCase()} Converter</h4>
+      <div className="flex items-start justify-between">
+        <h4>{symbol.toLocaleUpperCase()} Converter</h4>
+
+        <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="sm" />
+      </div>
 
       <div className="panel">
         <div className="input-wrapper">

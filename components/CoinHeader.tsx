@@ -1,7 +1,8 @@
 import { cn, formatCurrency, formatPercentage } from "@/lib/utils"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
-import { TrendingDown, TrendingUp } from "lucide-react";
+import { TrendingDown, TrendingUp } from "lucide-react"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 
 const CoinHeader = ({
   name,
@@ -40,7 +41,11 @@ const CoinHeader = ({
 
   return (
     <div id="coin-header">
-      <h3>{name}</h3>
+      <div className="flex items-start justify-between">
+        <h3>{name}</h3>
+
+        <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="md" />
+      </div>
 
       <div className="info">
         <Image src={image} alt={name} width={77} height={77} />

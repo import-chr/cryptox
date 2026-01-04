@@ -1,6 +1,7 @@
 import { Separator } from "@/components/ui/separator"
 import CandlestickChart from "@/components/CandlestickChart"
 import CoinHeader from "@/components/CoinHeader"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 
 const LiveDataWrapper = ({ coinId, coin, coinOHLCData, children }: LiveDataProps) => {
   return (
@@ -17,7 +18,11 @@ const LiveDataWrapper = ({ coinId, coin, coinOHLCData, children }: LiveDataProps
 
       <div className="trend">
         <CandlestickChart coinId={coinId} data={coinOHLCData}>
-          <h4>Trend Overview</h4>
+          <div className="flex items-start justify-between">
+            <h4>Trend Overview</h4>
+
+            <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="lg" />
+          </div>
         </CandlestickChart>
       </div>
 
