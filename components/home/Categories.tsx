@@ -59,7 +59,7 @@ const Categories = async () => {
       <div className="flex items-start justify-between">
         <h4>Top Categories</h4>
 
-        <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="xl" />
+        <PoweredByCGAPI svgClassName="mt-1 pr-5" size="xl" />
       </div>
 
       <DataTable

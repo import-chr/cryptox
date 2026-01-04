@@ -79,12 +79,12 @@ const Coins = async ({ searchParams }: NextPageProps) => {
     Math.ceil(currentPage / 100) * 100 + 100 : 100;
 
   return (
-    <main id="coins-page" className="mt-[48]">
+    <main id="coins-page" className="mt-12">
       <div className="content">
         <div className="flex items-start justify-between">
           <h4>All Tokens</h4>
 
-          <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="lg" />
+          <PoweredByCGAPI svgClassName="mt-1 pr-2" size="lg" />
         </div>
         <DataTable
           columns={columns}

@@ -74,7 +74,7 @@ const CoinDetailsPage = async ({ params }: NextPageProps) => {
           <div className="flex items-start justify-between">
             <h4>Coin Details</h4>
 
-            <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="sm" />
+            <PoweredByCGAPI svgClassName="mt-1 pr-5" size="sm" />
           </div>
 
           <ul className="details-grid">

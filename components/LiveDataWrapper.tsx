@@ -21,7 +21,7 @@ const LiveDataWrapper = ({ coinId, coin, coinOHLCData, children }: LiveDataProps
           <div className="flex items-start justify-between">
             <h4>Trend Overview</h4>
 
-            <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="lg" />
+            <PoweredByCGAPI svgClassName="mt-1 pr-5" size="lg" />
           </div>
         </CandlestickChart>
       </div>
