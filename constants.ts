@@ -111,3 +111,11 @@ export const PERIOD_BUTTONS: { value: Period; label: string }[] = [
   { value: '6months', label: '6M' },
   { value: 'yearly', label: '1Y' },
 ];
+
+export const SIZES = {
+  sm: { w: 140, h: 46 },
+  md: { w: 180, h: 58 },
+  lg: { w: 220, h: 72 },
+  xl: { w: 260, h: 86 },
+  xxl: { w: 300, h: 100 },
+};
