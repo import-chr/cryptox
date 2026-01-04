@@ -85,7 +85,7 @@ const CandlestickChart = ({
       chartRef.current = null;
       candleSeriesRef.current = null;
     }
-  }, [height, period]);
+  }, [height, period, ohlcData]);
 
   useEffect(() => {
     if(!candleSeriesRef.current) return;
@@ -105,7 +105,6 @@ const CandlestickChart = ({
         <div className="flex-1">{children}</div>
 
         <div className="button-group">
-          {/* <span className="text-sm mx-2 font-medium text-purple-100/50">Period:</span> */}
           {PERIOD_BUTTONS.map(({ value, label }) => (
             <button
               key={value}
