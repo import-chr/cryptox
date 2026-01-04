@@ -34,19 +34,19 @@ const CoinDetailsPage = async ({ params }: NextPageProps) => {
     {
       label: "Website",
       value: "-",
-      link: coinData.links.homepage[0],
+      link: coinData.links.homepage[0]|| undefined,
       linkText: "Homepage",
     },
     {
       label: "Explorer",
       value: "-",
-      link: coinData.links.blockchain_site[0],
+      link: coinData.links.blockchain_site[0] || undefined,
       linkText: "Explorer",
     },
     {
       label: "Community",
       value: "-",
-      link: coinData.links.subreddit_url,
+      link: coinData.links.subreddit_url || undefined,
       linkText: "Community",
     },
   ];
@@ -59,7 +59,6 @@ const CoinDetailsPage = async ({ params }: NextPageProps) => {
           coin={coinData}
           coinOHLCData={coinOHLCData}
         >
-          <h4>Exchange Listings</h4>
         </LiveDataWrapper>
       </section>
 
