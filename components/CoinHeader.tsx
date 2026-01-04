@@ -33,7 +33,7 @@ const CoinHeader = ({
       label: "Price change (24h)",
       value: priceChange24h,
       isUp: isPriceChangeUp,
-      formatter: formatCurrency,
+      formatter: (v: number) => formatCurrency(v, 2),
       showIcon: false,
     },
   ]
