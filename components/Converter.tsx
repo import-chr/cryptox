@@ -33,6 +33,7 @@ const Converter = ({
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             className="input"
+            min="0"
           />
 
           <div className="coin-info">
@@ -52,7 +53,7 @@ const Converter = ({
 
           <Select value={currency} onValueChange={setCurrency}>
             <SelectTrigger className="select-trigger" value={currency}>
-              <SelectValue placeholder="Select" className="select-value">
+              <SelectValue placeholder="Select currency" className="select-value">
                 {currency.toLocaleUpperCase()}
               </SelectValue>
             </SelectTrigger>
