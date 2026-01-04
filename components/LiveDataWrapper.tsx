@@ -2,7 +2,7 @@ import { Separator } from "@/components/ui/separator"
 import CandlestickChart from "@/components/CandlestickChart"
 import CoinHeader from "@/components/CoinHeader"
 
-const LiveDataWrapper = ({ coinId, coin, coinOHLCData }: LiveDataProps) => {
+const LiveDataWrapper = ({ coinId, coin, coinOHLCData, children }: LiveDataProps) => {
   return (
     <section id="live-data-wrapper">
       <CoinHeader
@@ -22,6 +22,8 @@ const LiveDataWrapper = ({ coinId, coin, coinOHLCData }: LiveDataProps) => {
       </div>
 
       <Separator className="divider" />
+
+      {children}
     </section>
   )
 }
