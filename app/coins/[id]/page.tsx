@@ -1,5 +1,6 @@
 import Converter from "@/components/Converter"
 import LiveDataWrapper from "@/components/LiveDataWrapper"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 import { fetchFromCoinGecko } from "@/lib/coingecko.actions"
 import { formatCurrency } from "@/lib/utils"
 import { ArrowUpRight } from "lucide-react"
@@ -70,7 +71,11 @@ const CoinDetailsPage = async ({ params }: NextPageProps) => {
         />
 
         <div className="details">
-          <h4>Coin Details</h4>
+          <div className="flex items-start justify-between">
+            <h4>Coin Details</h4>
+
+            <PoweredByCGAPI svgClassName="mt-1 pr-5" size="sm" />
+          </div>
 
           <ul className="details-grid">
             {coinDetails.map(({ label, value, link, linkText }, index) => (

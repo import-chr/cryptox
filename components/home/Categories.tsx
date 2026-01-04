@@ -3,6 +3,7 @@ import DataTable from "@/components/DataTable"
 import Image from "next/image"
 import { cn, formatCurrency, formatPercentage } from "@/lib/utils"
 import { TrendingDown, TrendingUp } from "lucide-react"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 
 const Categories = async () => {
   const categories = await fetchFromCoinGecko<Category[]>("/coins/categories");
@@ -55,7 +56,11 @@ const Categories = async () => {
 
   return (
     <div id="categories" className="custom-scrollbar">
-      <h4>Top Categories</h4>
+      <div className="flex items-start justify-between">
+        <h4>Top Categories</h4>
+
+        <PoweredByCGAPI svgClassName="mt-1 pr-5" size="xl" />
+      </div>
 
       <DataTable
         columns={columns}

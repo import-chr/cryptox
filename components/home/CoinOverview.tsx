@@ -3,6 +3,7 @@ import { fetchFromCoinGecko } from "@/lib/coingecko.actions"
 import { formatCurrency } from "@/lib/utils"
 import Image from "next/image"
 import CandlestickChart from "@/components/CandlestickChart"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 
 const CoinOverview = async () => {
   try {
@@ -21,13 +22,17 @@ const CoinOverview = async () => {
     return (
       <div id="coin-overview">
         <CandlestickChart data={coinOHLCData ?? []} coinId="bitcoin">
-          <div className="header pt-2">
-            <Image src={coin.image?.large ?? '/assets/icon.png'} alt={coin.name ?? 'Coin'} width={56} height={56} />
-            
-            <div className="info">
-              <p>{coin.name} | {coin.symbol?.toUpperCase() ?? ''}</p>
-              <h1>{formatCurrency(coin.market_data?.current_price?.usd)}</h1>
+          <div className="flex items-start justify-between pt-2">
+            <div className="header">
+              <Image src={coin.image?.large ?? '/assets/icon.png'} alt={coin.name ?? 'Coin'} width={56} height={56} />
+              
+              <div className="info">
+                <p>{coin.name} | {coin.symbol?.toUpperCase() ?? ''}</p>
+                <h1>{formatCurrency(coin.market_data?.current_price?.usd)}</h1>
+              </div>
             </div>
+
+            <PoweredByCGAPI svgClassName="mt-1" size="lg" />
           </div>
         </CandlestickChart>
       </div>

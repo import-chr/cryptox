@@ -5,6 +5,7 @@ import { TrendingDown, TrendingUp } from "lucide-react"
 import DataTable from "@/components/DataTable"
 import Image from "next/image"
 import Link from "next/link"
+import PoweredByCGAPI from "@/components/PoweredByCGAPI"
 
 const TrendingCoins = async () => {
   let trendingCoins: { coins: TrendingCoin[] };
@@ -69,16 +70,20 @@ const TrendingCoins = async () => {
 
   return (
     <div id="trending-coins">
-      <h4>Trending Coins</h4>
+      <div className="flex items-start justify-between">
+        <h4>Trending Coins</h4>
 
-        <DataTable 
-          columns={columns}
-          data={trendingCoins.coins.slice(0, 6)}
-          rowKey={(coin) => coin.item.id}
-          tableClassName="trending-coins-table"
-          headerCellClassName="py-3!"
-          bodyCellClassName="py-2!"
-        />
+        <PoweredByCGAPI svgClassName="mt-1 pr-[20]" size="sm" />
+      </div>
+
+      <DataTable 
+        columns={columns}
+        data={trendingCoins.coins.slice(0, 6)}
+        rowKey={(coin) => coin.item.id}
+        tableClassName="trending-coins-table"
+        headerCellClassName="py-3!"
+        bodyCellClassName="py-2!"
+      />
     </div>
   )
 }
