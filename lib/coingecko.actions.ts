@@ -41,7 +41,7 @@ export async function searchCoins(query: string): Promise<SearchCoin[]> {
 
   if(!q) return [];
 
-  const searchRes: SearchCoinResponse = await fetchFromCoinGecko("/search", { query: query });
+  const searchRes: SearchCoinResponse = await fetchFromCoinGecko("/search", { query: q });
 
   const baseItemCoin = searchRes.coins.map((coin) => ({
     id: coin.id,
@@ -67,14 +67,14 @@ export async function searchCoins(query: string): Promise<SearchCoin[]> {
 
   const coinsMarketsItemPrice = new Map(coinsMarketsRes.map(coin => [coin.id, coin]));
 
-  return baseItemCoin.map(coin => {
+  return baseItemCoin.slice(0, 10).map(coin => {
     const prices = coinsMarketsItemPrice.get(coin.id);
 
     return {
       ...coin,
       data: {
         price: prices?.current_price ?? 0,
-        price_change_percentage_24h: prices?.price_change_24h ?? 0,
+        price_change_percentage_24h: prices?.price_change_percentage_24h ?? 0,
       },
     };
   });
