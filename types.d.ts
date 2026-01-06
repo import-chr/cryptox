@@ -231,6 +231,28 @@ interface HeaderProps {
   trendingCoins: TrendingCoin[];
 }
 
+interface SearchCoinDataRaw {
+  id: string;
+  name: string;
+  api_symbol: string;
+  symbol: string;
+  market_cap_rank: number;
+  thumb: string;
+  large: string;
+}
+
+interface SearchCoinResponse {
+  coins: SearchCoinDataRaw[];
+}
+
+interface CoinGeckoMarketItem {
+  id: string;
+  price: number;
+  price_change_percentage_24h: number;
+}
+
+type CoinGeckoMarketResponse = CoinGeckoMarketItem[];
+
 type SearchItemCoin = SearchCoin | TrendingCoin['item'];
 
 interface SearchItemProps {
