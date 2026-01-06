@@ -53,9 +53,9 @@
 
 ## <a name="original">📌 Créditos</a>
 <p align="center">
-  <a href="https://github.com/adrianhajdin/signalist_stock-tracker-app" target="_blank">
+  <a href="https://github.com/adrianhajdin/coinpulse" target="_blank">
     <img 
-      src="https://opengraph.githubassets.com/1/adrianhajdin/signalist_stock-tracker-app"
+      src="https://opengraph.githubassets.com/1/adrianhajdin/coinpulse"
       alt="Original GitHub Repository"
       width="300"
     />
